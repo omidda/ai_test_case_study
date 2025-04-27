@@ -1,0 +1,42 @@
+# qodo-gen.yml
+
+project:
+  name: SampleProject
+  language: java
+  buildTool: maven  # or 'gradle' if you're using Gradle
+  testFramework: junit5
+  mockingFramework: mockito
+
+generation:
+  targetDirectory: src/test/java
+  include:
+    - src/main/java/**/*.java  # pattern to include classes for test generation
+  exclude:
+    - src/main/java/**/dto/**  # exclude certain packages if needed
+
+testStyle:
+  useDisplayName: true
+  useNestedTests: false
+  lifecycle:
+    useBeforeEach: true
+    useAfterEach: false
+    useBeforeAll: false
+    useAfterAll: false
+
+mocking:
+  strategy: constructor  # can be 'field', 'setter', or 'constructor'
+  autoDetectMocks: true
+  annotateWithInjectMocks: true
+
+naming:
+  classPrefix: QodoGen
+  testSuffix: Test
+  methodPrefix: should
+
+examples:
+  generate: true
+  strategy: behaviorDriven  # or 'classic'
+
+reporting:
+  generateReport: true
+  output: build/qodo-report.html
