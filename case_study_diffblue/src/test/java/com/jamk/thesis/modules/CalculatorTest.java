@@ -755,4 +755,73 @@ class CalculatorTest {
         // Arrange, Act and Assert
         assertEquals(0.6483608274590866d, (new Calculator()).tan(10.0d));
     }
+
+    /**
+     * Test {@link Calculator#factorial(int)}.
+     * <ul>
+     *   <li>When minus one.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#factorial(int)}
+     */
+    @Test
+    @DisplayName("Test factorial(int); when minus one; then throw IllegalArgumentException")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.factorial(int)"})
+    void testFactorial_whenMinusOne_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).factorial(-1));
+    }
+
+    /**
+     * Test {@link Calculator#permutation(int, int)}.
+     * <ul>
+     *   <li>When minus one.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#permutation(int, int)}
+     */
+    @Test
+    @DisplayName("Test permutation(int, int); when minus one; then throw IllegalArgumentException")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"long Calculator.permutation(int, int)"})
+    void testPermutation_whenMinusOne_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).permutation(0, -1));
+    }
+
+    /**
+     * Test {@link Calculator#permutation(int, int)}.
+     * <ul>
+     *   <li>When minus one.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#permutation(int, int)}
+     */
+    @Test
+    @DisplayName("Test permutation(int, int); when minus one; then throw IllegalArgumentException")
+    @Tag("MaintainedByDiffblue")
+    void testPermutation_whenMinusOne_thenThrowIllegalArgumentException2() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).permutation(-1, 0));
+    }
+
+    /**
+     * Test {@link Calculator#permutation(int, int)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#permutation(int, int)}
+     */
+    @Test
+    @DisplayName("Test permutation(int, int); when one; then throw IllegalArgumentException")
+    void testPermutation_whenOne_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).permutation(0, 1));
+    }
 }
