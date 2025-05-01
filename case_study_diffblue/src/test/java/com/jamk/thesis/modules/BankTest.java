@@ -10,7 +10,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.jamk.thesis.modules.Bank.TransactionAction;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -266,7 +265,6 @@ class BankTest {
     @Test
     @DisplayName("Test addAccount(Account)")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Bank.addAccount(Account)"})
     void testAddAccount() {
         // Arrange
         Bank bank = new Bank();
@@ -289,7 +287,6 @@ class BankTest {
     @Test
     @DisplayName("Test addAccount(Account); given Bank (default constructor); then Bank (default constructor) TotalBalance is ten")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Bank.addAccount(Account)"})
     void testAddAccount_givenBank_thenBankTotalBalanceIsTen() {
         // Arrange
         Bank bank = new Bank();
@@ -312,7 +309,6 @@ class BankTest {
     @Test
     @DisplayName("Test addAccount(Account); then Bank (default constructor) TotalBalance is twenty")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Bank.addAccount(Account)"})
     void testAddAccount_thenBankTotalBalanceIsTwenty() {
         // Arrange
         Bank bank = new Bank();
@@ -336,7 +332,6 @@ class BankTest {
     @Test
     @DisplayName("Test addAccount(Account); then throw IllegalArgumentException")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Bank.addAccount(Account)"})
     void testAddAccount_thenThrowIllegalArgumentException() {
         // Arrange
         Bank bank = new Bank();
