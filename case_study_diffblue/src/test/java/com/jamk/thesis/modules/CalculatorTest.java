@@ -1,6 +1,5 @@
 package com.jamk.thesis.modules;
 
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -879,7 +878,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test gcd(int, int); when minus one; then return one")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.gcd(int, int)"})
     void testGcd_whenMinusOne_thenReturnOne() {
         // Arrange, Act and Assert
         assertEquals(1, (new Calculator()).gcd(-1, 3));
@@ -897,7 +895,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test gcd(int, int); when one; then return one")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.gcd(int, int)"})
     void testGcd_whenOne_thenReturnOne() {
         // Arrange, Act and Assert
         assertEquals(1, (new Calculator()).gcd(1, 3));
@@ -915,7 +912,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test gcd(int, int); when three; then return three")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.gcd(int, int)"})
     void testGcd_whenThree_thenReturnThree() {
         // Arrange, Act and Assert
         assertEquals(3, (new Calculator()).gcd(3, 3));
@@ -933,7 +929,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test gcd(int, int); when zero; then return three")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.gcd(int, int)"})
     void testGcd_whenZero_thenReturnThree() {
         // Arrange, Act and Assert
         assertEquals(3, (new Calculator()).gcd(0, 3));
@@ -951,7 +946,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test permutation(int, int); when three; then return six")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"long Calculator.permutation(int, int)"})
     void testPermutation_whenThree_thenReturnSix() {
         // Arrange, Act and Assert
         assertEquals(6L, (new Calculator()).permutation(3, 3));
@@ -969,7 +963,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test permutation(int, int); when zero; then return one")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"long Calculator.permutation(int, int)"})
     void testPermutation_whenZero_thenReturnOne() {
         // Arrange, Act and Assert
         assertEquals(1L, (new Calculator()).permutation(0, 0));
