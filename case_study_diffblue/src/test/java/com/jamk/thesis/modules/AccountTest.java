@@ -3,7 +3,6 @@ package com.jamk.thesis.modules;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,6 @@ class AccountTest {
     @Test
     @DisplayName("Test new Account(String, String, double); when '-1.0E-10'; then throw IllegalArgumentException")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Account.<init>(String, String, double)"})
     void testNewAccount_when10e10_thenThrowIllegalArgumentException() {
         // Arrange, Act and Assert
         assertThrows(IllegalArgumentException.class, () -> new Account("42", "Owner", -1.0E-10d));
@@ -40,7 +38,6 @@ class AccountTest {
     @Test
     @DisplayName("Test new Account(String, String, double); when ten; then return AccountNumber is '42'")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Account.<init>(String, String, double)"})
     void testNewAccount_whenTen_thenReturnAccountNumberIs42() {
         // Arrange and Act
         Account actualAccount = new Account("42", "Owner", 10.0d);
@@ -65,8 +62,6 @@ class AccountTest {
     @Test
     @DisplayName("Test getters and setters")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"String Account.getAccountNumber()", "double Account.getBalance()", "String Account.getOwner()",
-            "void Account.setBalance(double)"})
     void testGettersAndSetters() {
         // Arrange
         Account account = new Account("42", "Owner", 10.0d);
@@ -90,7 +85,6 @@ class AccountTest {
     @Test
     @DisplayName("Test deposit(double)")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Account.deposit(double)"})
     void testDeposit() {
         // Arrange
         Account account = new Account("42", "Owner", 10.0d);
@@ -114,7 +108,6 @@ class AccountTest {
     @Test
     @DisplayName("Test deposit(double); when zero; then throw IllegalArgumentException")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Account.deposit(double)"})
     void testDeposit_whenZero_thenThrowIllegalArgumentException() {
         // Arrange, Act and Assert
         assertThrows(IllegalArgumentException.class, () -> (new Account("42", "Owner", 10.0d)).deposit(0.0d));
@@ -128,7 +121,6 @@ class AccountTest {
     @Test
     @DisplayName("Test withdraw(double)")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Account.withdraw(double)"})
     void testWithdraw() {
         // Arrange
         Account account = new Account("42", "Owner", 10.0d);
@@ -151,7 +143,6 @@ class AccountTest {
     @Test
     @DisplayName("Test withdraw(double); given Account(String, String, double) with accountNumber is '42' and 'Owner' and initialBalance is zero")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Account.withdraw(double)"})
     void testWithdraw_givenAccountWithAccountNumberIs42AndOwnerAndInitialBalanceIsZero() {
         // Arrange, Act and Assert
         assertThrows(IllegalArgumentException.class, () -> (new Account("42", "Owner", 0.0d)).withdraw(10.0d));
@@ -169,7 +160,6 @@ class AccountTest {
     @Test
     @DisplayName("Test withdraw(double); when zero; then throw IllegalArgumentException")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"void Account.withdraw(double)"})
     void testWithdraw_whenZero_thenThrowIllegalArgumentException() {
         // Arrange, Act and Assert
         assertThrows(IllegalArgumentException.class, () -> (new Account("42", "Owner", 10.0d)).withdraw(0.0d));

@@ -1,6 +1,5 @@
 package com.jamk.thesis.modules;
 
-import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -598,7 +597,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test subtract(int, int); when minus one; then return minus four")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
     void testSubtract_whenMinusOne_thenReturnMinusFour() {
         // Arrange, Act and Assert
         assertEquals(-4, (new Calculator()).subtract(-1, 3));
@@ -616,7 +614,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test subtract(int, int); when one; then return minus two")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
     void testSubtract_whenOne_thenReturnMinusTwo() {
         // Arrange, Act and Assert
         assertEquals(-2, (new Calculator()).subtract(1, 3));
@@ -634,7 +631,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test subtract(int, int); when three; then return zero")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
     void testSubtract_whenThree_thenReturnZero() {
         // Arrange, Act and Assert
         assertEquals(0, (new Calculator()).subtract(3, 3));
@@ -652,7 +648,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test subtract(int, int); when zero; then return minus three")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
     void testSubtract_whenZero_thenReturnMinusThree() {
         // Arrange, Act and Assert
         assertEquals(-3, (new Calculator()).subtract(0, 3));
@@ -670,7 +665,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test multiply(int, int); when minus one; then return minus three")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
     void testMultiply_whenMinusOne_thenReturnMinusThree() {
         // Arrange, Act and Assert
         assertEquals(-3, (new Calculator()).multiply(-1, 3));
@@ -688,7 +682,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test multiply(int, int); when one; then return three")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
     void testMultiply_whenOne_thenReturnThree() {
         // Arrange, Act and Assert
         assertEquals(3, (new Calculator()).multiply(1, 3));
@@ -706,7 +699,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test multiply(int, int); when three; then return nine")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
     void testMultiply_whenThree_thenReturnNine() {
         // Arrange, Act and Assert
         assertEquals(9, (new Calculator()).multiply(3, 3));
@@ -724,7 +716,6 @@ class CalculatorTest {
     @Test
     @DisplayName("Test multiply(int, int); when zero; then return zero")
     @Tag("MaintainedByDiffblue")
-    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
     void testMultiply_whenZero_thenReturnZero() {
         // Arrange, Act and Assert
         assertEquals(0, (new Calculator()).multiply(0, 3));
