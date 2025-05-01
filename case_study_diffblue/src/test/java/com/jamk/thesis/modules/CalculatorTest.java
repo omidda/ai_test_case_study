@@ -1,10 +1,10 @@
 package com.jamk.thesis.modules;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class CalculatorTest {
     /**
@@ -210,5 +210,377 @@ class CalculatorTest {
     void testCombination_whenZero_thenReturnOne() {
         // Arrange, Act and Assert
         assertEquals(1L, (new Calculator()).combination(0, 0));
+    }
+
+    /**
+     * Test {@link Calculator#fibonacci(int)}.
+     * <ul>
+     *   <li>When minus one.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#fibonacci(int)}
+     */
+    @Test
+    @DisplayName("Test fibonacci(int); when minus one; then throw IllegalArgumentException")
+    void testFibonacci_whenMinusOne_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).fibonacci(-1));
+    }
+
+    /**
+     * Test {@link Calculator#fibonacci(int)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then return one.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#fibonacci(int)}
+     */
+    @Test
+    @DisplayName("Test fibonacci(int); when one; then return one")
+    void testFibonacci_whenOne_thenReturnOne() {
+        // Arrange, Act and Assert
+        assertEquals(1, (new Calculator()).fibonacci(1));
+    }
+
+    /**
+     * Test {@link Calculator#fibonacci(int)}.
+     * <ul>
+     *   <li>When two.</li>
+     *   <li>Then return one.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#fibonacci(int)}
+     */
+    @Test
+    @DisplayName("Test fibonacci(int); when two; then return one")
+    void testFibonacci_whenTwo_thenReturnOne() {
+        // Arrange, Act and Assert
+        assertEquals(1, (new Calculator()).fibonacci(2));
+    }
+
+    /**
+     * Test {@link Calculator#fibonacci(int)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then return zero.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#fibonacci(int)}
+     */
+    @Test
+    @DisplayName("Test fibonacci(int); when zero; then return zero")
+    void testFibonacci_whenZero_thenReturnZero() {
+        // Arrange, Act and Assert
+        assertEquals(0, (new Calculator()).fibonacci(0));
+    }
+
+
+    /**
+     * Test {@link Calculator#power(double, double)}.
+     * <ul>
+     *   <li>When {@code 0.5}.</li>
+     *   <li>Then return {@code 9.765625E-4}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#power(double, double)}
+     */
+    @Test
+    @DisplayName("Test power(double, double); when '0.5'; then return '9.765625E-4'")
+    void testPower_when05_thenReturn9765625e4() {
+        // Arrange, Act and Assert
+        assertEquals(9.765625E-4d, (new Calculator()).power(0.5d, 10.0d));
+    }
+
+    /**
+     * Test {@link Calculator#power(double, double)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then return one.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#power(double, double)}
+     */
+    @Test
+    @DisplayName("Test power(double, double); when one; then return one")
+    void testPower_whenOne_thenReturnOne() {
+        // Arrange, Act and Assert
+        assertEquals(1.0d, (new Calculator()).power(1.0d, 10.0d));
+    }
+
+    /**
+     * Test {@link Calculator#power(double, double)}.
+     * <ul>
+     *   <li>When ten.</li>
+     *   <li>Then return {@code 1.0E10}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#power(double, double)}
+     */
+    @Test
+    @DisplayName("Test power(double, double); when ten; then return '1.0E10'")
+    void testPower_whenTen_thenReturn10e10() {
+        // Arrange, Act and Assert
+        assertEquals(1.0E10d, (new Calculator()).power(10.0d, 10.0d));
+    }
+
+    /**
+     * Test {@link Calculator#power(double, double)}.
+     * <ul>
+     *   <li>When two.</li>
+     *   <li>Then return {@code 1024.0}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#power(double, double)}
+     */
+    @Test
+    @DisplayName("Test power(double, double); when two; then return '1024.0'")
+    void testPower_whenTwo_thenReturn10240() {
+        // Arrange, Act and Assert
+        assertEquals(1024.0d, (new Calculator()).power(2.0d, 10.0d));
+    }
+
+    /**
+     * Test {@link Calculator#logarithm(double, double)}.
+     * <ul>
+     *   <li>When {@code 1.0E-10}.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#logarithm(double, double)}
+     */
+    @Test
+    @DisplayName("Test logarithm(double, double); when '1.0E-10'; then throw IllegalArgumentException")
+    void testLogarithm_when10e10_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).logarithm(0.0d, 1.0E-10d));
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).logarithm(1.0E-10d, 0.0d));
+    }
+
+    /**
+     * Test {@link Calculator#logarithm(double, double)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#logarithm(double, double)}
+     */
+    @Test
+    @DisplayName("Test logarithm(double, double); when one; then throw IllegalArgumentException")
+    void testLogarithm_whenOne_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).logarithm(0.0d, 1.0d));
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).logarithm(1.0E-10d, 1.0d));
+    }
+
+    /**
+     * Test {@link Calculator#logarithm(double, double)}.
+     * <ul>
+     *   <li>When ten.</li>
+     *   <li>Then return one.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#logarithm(double, double)}
+     */
+    @Test
+    @DisplayName("Test logarithm(double, double); when ten; then return one")
+    void testLogarithm_whenTen_thenReturnOne() {
+        // Arrange, Act and Assert
+        assertEquals(1.0d, (new Calculator()).logarithm(10.0d, 10.0d));
+    }
+
+    /**
+     * Test {@link Calculator#logarithm(double, double)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#logarithm(double, double)}
+     */
+    @Test
+    @DisplayName("Test logarithm(double, double); when zero; then throw IllegalArgumentException")
+    void testLogarithm_whenZero_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).logarithm(0.0d, 0.0d));
+    }
+
+    /**
+     * Test {@link Calculator#lcm(int, int)}.
+     * <ul>
+     *   <li>When minus one.</li>
+     *   <li>Then return three.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#lcm(int, int)}
+     */
+    @Test
+    @DisplayName("Test lcm(int, int); when minus one; then return three")
+    void testLcm_whenMinusOne_thenReturnThree() {
+        // Arrange, Act and Assert
+        assertEquals(3, (new Calculator()).lcm(-1, 3));
+    }
+
+    /**
+     * Test {@link Calculator#lcm(int, int)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then return three.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#lcm(int, int)}
+     */
+    @Test
+    @DisplayName("Test lcm(int, int); when one; then return three")
+    void testLcm_whenOne_thenReturnThree() {
+        // Arrange, Act and Assert
+        assertEquals(3, (new Calculator()).lcm(1, 3));
+    }
+
+    /**
+     * Test {@link Calculator#lcm(int, int)}.
+     * <ul>
+     *   <li>When three.</li>
+     *   <li>Then return three.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#lcm(int, int)}
+     */
+    @Test
+    @DisplayName("Test lcm(int, int); when three; then return three")
+    void testLcm_whenThree_thenReturnThree() {
+        // Arrange, Act and Assert
+        assertEquals(3, (new Calculator()).lcm(3, 3));
+    }
+
+    /**
+     * Test {@link Calculator#lcm(int, int)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then return zero.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#lcm(int, int)}
+     */
+    @Test
+    @DisplayName("Test lcm(int, int); when zero; then return zero")
+    void testLcm_whenZero_thenReturnZero() {
+        // Arrange, Act and Assert
+        assertEquals(0, (new Calculator()).lcm(0, 3));
+        assertEquals(0, (new Calculator()).lcm(3, 0));
+    }
+
+    /**
+     * Test {@link Calculator#solveQuadratic(double, double, double)}.
+     * <ul>
+     *   <li>Then return array of {@code double} with {@code -0.16666666666666666} and
+     * {@code 0.2}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#solveQuadratic(double, double, double)}
+     */
+    @Test
+    @DisplayName("Test solveQuadratic(double, double, double); then return array of double with '-0.16666666666666666' and '0.2'")
+    void testSolveQuadratic_thenReturnArrayOfDoubleWith016666666666666666And02() {
+        // Arrange, Act and Assert
+        assertArrayEquals(new double[]{-0.16666666666666666d, 0.2d},
+                (new Calculator()).solveQuadratic(-300.0d, 10.0d, 10.0d), 0.0);
+    }
+
+    /**
+     * Test {@link Calculator#solveQuadratic(double, double, double)}.
+     * <ul>
+     *   <li>When ten.</li>
+     *   <li>Then return empty array of {@code double}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#solveQuadratic(double, double, double)}
+     */
+    @Test
+    @DisplayName("Test solveQuadratic(double, double, double); when ten; then return empty array of double")
+    void testSolveQuadratic_whenTen_thenReturnEmptyArrayOfDouble() {
+        // Arrange, Act and Assert
+        assertArrayEquals(new double[]{}, (new Calculator()).solveQuadratic(10.0d, 10.0d, 10.0d), 0.0);
+    }
+
+    /**
+     * Test {@link Calculator#solveQuadratic(double, double, double)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then return array of {@code double} with {@code -0.0}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#solveQuadratic(double, double, double)}
+     */
+    @Test
+    @DisplayName("Test solveQuadratic(double, double, double); when zero; then return array of double with '-0.0'")
+    void testSolveQuadratic_whenZero_thenReturnArrayOfDoubleWith00() {
+        // Arrange, Act and Assert
+        assertArrayEquals(new double[]{-0.0d}, (new Calculator()).solveQuadratic(10.0d, 0.0d, 0.0d), 0.0);
+    }
+
+    /**
+     * Test {@link Calculator#solveQuadratic(double, double, double)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#solveQuadratic(double, double, double)}
+     */
+    @Test
+    @DisplayName("Test solveQuadratic(double, double, double); when zero; then throw IllegalArgumentException")
+    void testSolveQuadratic_whenZero_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).solveQuadratic(0.0d, 10.0d, 10.0d));
+    }
+
+    /**
+     * Test {@link Calculator#polynomialDerivative(double[])}.
+     * <ul>
+     *   <li>Then return array of {@code double} with thirty and two.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#polynomialDerivative(double[])}
+     */
+    @Test
+    @DisplayName("Test polynomialDerivative(double[]); then return array of double with thirty and two")
+    void testPolynomialDerivative_thenReturnArrayOfDoubleWithThirtyAndTwo() {
+        // Arrange, Act and Assert
+        assertArrayEquals(new double[]{30.0d, 2.0d, 10.0d},
+                (new Calculator()).polynomialDerivative(new double[]{10.0d, 1.0d, 10.0d, 1.0d}), 0.0);
+    }
+
+    /**
+     * Test {@link Calculator#polynomialDerivative(double[])}.
+     * <ul>
+     *   <li>When empty array of {@code double}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#polynomialDerivative(double[])}
+     */
+    @Test
+    @DisplayName("Test polynomialDerivative(double[]); when empty array of double")
+    void testPolynomialDerivative_whenEmptyArrayOfDouble() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).polynomialDerivative(new double[]{}));
+    }
+
+    /**
+     * Test {@link Calculator#polynomialDerivative(double[])}.
+     * <ul>
+     *   <li>When {@code null}.</li>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#polynomialDerivative(double[])}
+     */
+    @Test
+    @DisplayName("Test polynomialDerivative(double[]); when 'null'; then throw IllegalArgumentException")
+    void testPolynomialDerivative_whenNull_thenThrowIllegalArgumentException() {
+        // Arrange, Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> (new Calculator()).polynomialDerivative(null));
     }
 }
