@@ -1,6 +1,8 @@
 package com.jamk.thesis.modules;
 
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -582,5 +584,175 @@ class CalculatorTest {
     void testPolynomialDerivative_whenNull_thenThrowIllegalArgumentException() {
         // Arrange, Act and Assert
         assertThrows(IllegalArgumentException.class, () -> (new Calculator()).polynomialDerivative(null));
+    }
+
+    /**
+     * Test {@link Calculator#subtract(int, int)}.
+     * <ul>
+     *   <li>When minus one.</li>
+     *   <li>Then return minus four.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#subtract(int, int)}
+     */
+    @Test
+    @DisplayName("Test subtract(int, int); when minus one; then return minus four")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
+    void testSubtract_whenMinusOne_thenReturnMinusFour() {
+        // Arrange, Act and Assert
+        assertEquals(-4, (new Calculator()).subtract(-1, 3));
+    }
+
+    /**
+     * Test {@link Calculator#subtract(int, int)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then return minus two.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#subtract(int, int)}
+     */
+    @Test
+    @DisplayName("Test subtract(int, int); when one; then return minus two")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
+    void testSubtract_whenOne_thenReturnMinusTwo() {
+        // Arrange, Act and Assert
+        assertEquals(-2, (new Calculator()).subtract(1, 3));
+    }
+
+    /**
+     * Test {@link Calculator#subtract(int, int)}.
+     * <ul>
+     *   <li>When three.</li>
+     *   <li>Then return zero.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#subtract(int, int)}
+     */
+    @Test
+    @DisplayName("Test subtract(int, int); when three; then return zero")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
+    void testSubtract_whenThree_thenReturnZero() {
+        // Arrange, Act and Assert
+        assertEquals(0, (new Calculator()).subtract(3, 3));
+    }
+
+    /**
+     * Test {@link Calculator#subtract(int, int)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then return minus three.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#subtract(int, int)}
+     */
+    @Test
+    @DisplayName("Test subtract(int, int); when zero; then return minus three")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.subtract(int, int)"})
+    void testSubtract_whenZero_thenReturnMinusThree() {
+        // Arrange, Act and Assert
+        assertEquals(-3, (new Calculator()).subtract(0, 3));
+    }
+
+    /**
+     * Test {@link Calculator#multiply(int, int)}.
+     * <ul>
+     *   <li>When minus one.</li>
+     *   <li>Then return minus three.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#multiply(int, int)}
+     */
+    @Test
+    @DisplayName("Test multiply(int, int); when minus one; then return minus three")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
+    void testMultiply_whenMinusOne_thenReturnMinusThree() {
+        // Arrange, Act and Assert
+        assertEquals(-3, (new Calculator()).multiply(-1, 3));
+    }
+
+    /**
+     * Test {@link Calculator#multiply(int, int)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then return three.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#multiply(int, int)}
+     */
+    @Test
+    @DisplayName("Test multiply(int, int); when one; then return three")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
+    void testMultiply_whenOne_thenReturnThree() {
+        // Arrange, Act and Assert
+        assertEquals(3, (new Calculator()).multiply(1, 3));
+    }
+
+    /**
+     * Test {@link Calculator#multiply(int, int)}.
+     * <ul>
+     *   <li>When three.</li>
+     *   <li>Then return nine.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#multiply(int, int)}
+     */
+    @Test
+    @DisplayName("Test multiply(int, int); when three; then return nine")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
+    void testMultiply_whenThree_thenReturnNine() {
+        // Arrange, Act and Assert
+        assertEquals(9, (new Calculator()).multiply(3, 3));
+    }
+
+    /**
+     * Test {@link Calculator#multiply(int, int)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then return zero.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#multiply(int, int)}
+     */
+    @Test
+    @DisplayName("Test multiply(int, int); when zero; then return zero")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.multiply(int, int)"})
+    void testMultiply_whenZero_thenReturnZero() {
+        // Arrange, Act and Assert
+        assertEquals(0, (new Calculator()).multiply(0, 3));
+    }
+
+    /**
+     * Test {@link Calculator#sin(double)}.
+     * <p>
+     * Method under test: {@link Calculator#sin(double)}
+     */
+    @Test
+    @DisplayName("Test sin(double)")
+    @Tag("MaintainedByDiffblue")
+    void testSin() {
+        // Arrange, Act and Assert
+        assertEquals(-0.5440211108893698d, (new Calculator()).sin(10.0d));
+    }
+
+    /**
+     * Test {@link Calculator#tan(double)}.
+     * <p>
+     * Method under test: {@link Calculator#tan(double)}
+     */
+    @Test
+    @DisplayName("Test tan(double)")
+    @Tag("MaintainedByDiffblue")
+    void testTan() {
+        // Arrange, Act and Assert
+        assertEquals(0.6483608274590866d, (new Calculator()).tan(10.0d));
     }
 }

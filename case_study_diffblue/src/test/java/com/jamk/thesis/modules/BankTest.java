@@ -10,8 +10,10 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import com.diffblue.cover.annotations.MethodsUnderTest;
 import com.jamk.thesis.modules.Bank.TransactionAction;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class BankTest {
@@ -22,7 +24,7 @@ class BankTest {
      */
     @Test
     @DisplayName("Test addAccount(Account)")
-    void testAddAccount() {
+    void testAddAccount_2() {
         // Arrange
         Bank bank = new Bank();
 
@@ -255,4 +257,93 @@ class BankTest {
         // Arrange, Act and Assert
         assertEquals(0.0d, (new Bank()).getTotalBalance());
     }
+
+    /**
+     * Test {@link Bank#addAccount(Account)}.
+     * <p>
+     * Method under test: {@link Bank#addAccount(Account)}
+     */
+    @Test
+    @DisplayName("Test addAccount(Account)")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"void Bank.addAccount(Account)"})
+    void testAddAccount() {
+        // Arrange
+        Bank bank = new Bank();
+        bank.addAccount(new Account("3", "42", 10.0d));
+        bank.addAccount(new Account("42", "Owner", 10.0d));
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> bank.addAccount(new Account("42", "Owner", 10.0d)));
+    }
+
+    /**
+     * Test {@link Bank#addAccount(Account)}.
+     * <ul>
+     *   <li>Given {@link Bank} (default constructor).</li>
+     *   <li>Then {@link Bank} (default constructor) TotalBalance is ten.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Bank#addAccount(Account)}
+     */
+    @Test
+    @DisplayName("Test addAccount(Account); given Bank (default constructor); then Bank (default constructor) TotalBalance is ten")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"void Bank.addAccount(Account)"})
+    void testAddAccount_givenBank_thenBankTotalBalanceIsTen() {
+        // Arrange
+        Bank bank = new Bank();
+
+        // Act
+        bank.addAccount(new Account("42", "Owner", 10.0d));
+
+        // Assert
+        assertEquals(10.0d, bank.getTotalBalance());
+    }
+
+    /**
+     * Test {@link Bank#addAccount(Account)}.
+     * <ul>
+     *   <li>Then {@link Bank} (default constructor) TotalBalance is twenty.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Bank#addAccount(Account)}
+     */
+    @Test
+    @DisplayName("Test addAccount(Account); then Bank (default constructor) TotalBalance is twenty")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"void Bank.addAccount(Account)"})
+    void testAddAccount_thenBankTotalBalanceIsTwenty() {
+        // Arrange
+        Bank bank = new Bank();
+        bank.addAccount(new Account("3", "Owner", 10.0d));
+
+        // Act
+        bank.addAccount(new Account("42", "Owner", 10.0d));
+
+        // Assert
+        assertEquals(20.0d, bank.getTotalBalance());
+    }
+
+    /**
+     * Test {@link Bank#addAccount(Account)}.
+     * <ul>
+     *   <li>Then throw {@link IllegalArgumentException}.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Bank#addAccount(Account)}
+     */
+    @Test
+    @DisplayName("Test addAccount(Account); then throw IllegalArgumentException")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"void Bank.addAccount(Account)"})
+    void testAddAccount_thenThrowIllegalArgumentException() {
+        // Arrange
+        Bank bank = new Bank();
+        bank.addAccount(new Account("42", "Owner", 10.0d));
+
+        // Act and Assert
+        assertThrows(IllegalArgumentException.class, () -> bank.addAccount(new Account("42", "Owner", 10.0d)));
+    }
+
 }
