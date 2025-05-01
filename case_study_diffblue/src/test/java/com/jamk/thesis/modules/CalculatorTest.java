@@ -824,4 +824,59 @@ class CalculatorTest {
         // Arrange, Act and Assert
         assertThrows(IllegalArgumentException.class, () -> (new Calculator()).permutation(0, 1));
     }
+
+
+    /**
+     * Test {@link Calculator#factorial(int)}.
+     * <ul>
+     *   <li>When one.</li>
+     *   <li>Then return one.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#factorial(int)}
+     */
+    @Test
+    @DisplayName("Test factorial(int); when one; then return one")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.factorial(int)"})
+    void testFactorial_whenOne_thenReturnOne() {
+        // Arrange, Act and Assert
+        assertEquals(1, (new Calculator()).factorial(1));
+    }
+
+    /**
+     * Test {@link Calculator#factorial(int)}.
+     * <ul>
+     *   <li>When two.</li>
+     *   <li>Then return two.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#factorial(int)}
+     */
+    @Test
+    @DisplayName("Test factorial(int); when two; then return two")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.factorial(int)"})
+    void testFactorial_whenTwo_thenReturnTwo() {
+        // Arrange, Act and Assert
+        assertEquals(2, (new Calculator()).factorial(2));
+    }
+
+    /**
+     * Test {@link Calculator#factorial(int)}.
+     * <ul>
+     *   <li>When zero.</li>
+     *   <li>Then return one.</li>
+     * </ul>
+     * <p>
+     * Method under test: {@link Calculator#factorial(int)}
+     */
+    @Test
+    @DisplayName("Test factorial(int); when zero; then return one")
+    @Tag("MaintainedByDiffblue")
+    @MethodsUnderTest({"int Calculator.factorial(int)"})
+    void testFactorial_whenZero_thenReturnOne() {
+        // Arrange, Act and Assert
+        assertEquals(1, (new Calculator()).factorial(0));
+    }
 }
